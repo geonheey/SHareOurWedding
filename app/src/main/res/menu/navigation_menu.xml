@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+
+        android:title="home" />
+
+    <item android:title="remote">
+        <menu>
+            <item
+                android:id="@+id/nav_remote"
+
+                android:title="remote_control"/>
+            <item
+                android:id="@+id/nav_addremote"
+
+                android:title="add_remote_control"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/nav_explain"
+
+        android:title="explain" />
+
+    <item
+        android:id="@+id/nav_settings"
+
+        android:title="ettings" />
+</menu>
