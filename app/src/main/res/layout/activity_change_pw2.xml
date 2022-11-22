@@ -14,7 +14,7 @@
         android:fontFamily="@font/yeonsung"
         android:gravity="center"
         android:text="이메일이 전송되었습니다!"
-        android:textSize="24sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

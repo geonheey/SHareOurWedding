@@ -37,8 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:backgroundTint="#DD9EB3"
+            android:fontFamily="@font/yeonsung"
             android:text="로그아웃"
-            android:fontFamily="@font/yeonsung"/>
+            android:textSize="18sp" />
 
         <TextView
             android:text="회원탈퇴 합니다."
