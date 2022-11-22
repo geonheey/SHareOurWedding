@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#7ab9fd">
+    android:background="@drawable/bg1">
 
     <TextView
         android:layout_gravity="center_horizontal"
@@ -14,13 +14,15 @@
         android:layout_marginTop="50dp"
         android:textSize="23dp"
         android:textColor="@color/black"
-        android:text="암호 변경" />
+        android:text="암호 변경"
+        android:fontFamily="@font/yeonsung"/>
 
     <TextView
         android:text="등록한 Email을 입력해 주세요."
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yeonsung"/>
 
     <EditText
         android:id="@+id/editTextUserEmail"
@@ -29,21 +31,26 @@
         android:layout_margin="10dp"
         android:layout_gravity="center_horizontal"
         android:hint="Enter email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:fontFamily="@font/yeonsung"/>
 
     <Button
         android:id="@+id/btn_changepw"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
         android:layout_gravity="center_horizontal"
-        android:text="Email 전송" />
+        android:layout_margin="15dp"
+        android:backgroundTint="#DD9EB3"
+        android:fontFamily="@font/yeonsung"
+        android:text="Email 전송"
+        android:textSize="18sp" />
 
     <TextView
         android:layout_gravity="center_horizontal"
         android:textColor="@color/black"
         android:id="@+id/textviewMessage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yeonsung"/>
 
 </LinearLayout>

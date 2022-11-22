@@ -4,29 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg1"
     tools:context=".ChangePw2Activity">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="281dp"
+        android:layout_height="81dp"
+        android:fontFamily="@font/yeonsung"
+        android:gravity="center"
         android:text="이메일이 전송되었습니다!"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.304" />
+
+    <Button
+        android:id="@+id/btn_tolog"
+        android:layout_width="158dp"
+        android:layout_height="51dp"
+        android:backgroundTint="#DD9EB3"
+        android:fontFamily="@font/yeonsung"
+        android:text="로그인 화면으로"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.383" />
-
-    <Button
-        android:id="@+id/btn_tolog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="로그인 화면으로"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.623" />
+        app:layout_constraintVertical_bias="0.54" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

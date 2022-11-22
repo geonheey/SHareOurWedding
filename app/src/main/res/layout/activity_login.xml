@@ -5,6 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg1"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,19 +16,20 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:background="@color/black"
+            android:backgroundTint="#DD9EB3"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/yeonsung">
 
             <ImageView
                 android:id="@+id/imageMenu"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_menu"
-                />
+                android:src="@drawable/ic_menu" />
 
             <TextView
                 android:id="@+id/textTitle"
@@ -35,11 +37,57 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:text="@string/app_name"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/white"/>
+                android:fontFamily="@font/yeonsung" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="413dp"
+            android:layout_height="50dp"
+            android:layout_margin="8dp"
+            android:backgroundTint="#DD9EB3"
+            android:text="로그인"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.677"
+            android:fontFamily="@font/yeonsung"/>
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="242dp"
+            android:layout_height="50dp"
+            android:layout_margin="8dp"
+            android:backgroundTint="#777374"
+            android:text="회원가입"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.956"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.575"
+            android:fontFamily="@font/yeonsung"/>
+
+        <Button
+            android:id="@+id/btn_changepw"
+            android:layout_width="152dp"
+            android:layout_height="50dp"
+            android:layout_margin="8dp"
+            android:backgroundTint="#777374"
+            android:text="Password 변경"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.577"
+            android:fontFamily="@font/yeonsung"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -52,8 +100,6 @@
         android:layout_gravity="start"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
@@ -72,7 +118,8 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.365" />
+            app:layout_constraintVertical_bias="0.365"
+            android:fontFamily="@font/yeonsung"/>
 
         <EditText
             android:id="@+id/et_password"
@@ -86,49 +133,8 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.473" />
-
-        <Button
-            android:id="@+id/btn_register"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginEnd="32dp"
-            android:backgroundTint="@color/black"
-            android:text="회원가입"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.733"
-            app:layout_constraintStart_toEndOf="@+id/btn_changepw"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.565" />
-
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="로그인"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.661" />
-
-        <Button
-            android:id="@+id/btn_changepw"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:backgroundTint="@color/black"
-            android:text="Password 변경"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btn_register"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.563" />
-
+            app:layout_constraintVertical_bias="0.473"
+            android:fontFamily="@font/yeonsung"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

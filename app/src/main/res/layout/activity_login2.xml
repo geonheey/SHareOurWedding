@@ -3,8 +3,7 @@
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@color/purple_200"
+android:layout_height="match_parent" android:background="@drawable/bg1"
 tools:context=".LoginActivity">
 
 
@@ -20,7 +19,8 @@ tools:context=".LoginActivity">
     app:layout_constraintHorizontal_bias="0.497"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.365" />
+    app:layout_constraintVertical_bias="0.365"
+    android:fontFamily="@font/yeonsung"/>
 
 <EditText
     android:id="@+id/et_password"
@@ -34,48 +34,53 @@ tools:context=".LoginActivity">
     app:layout_constraintHorizontal_bias="0.497"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.473" />
+    app:layout_constraintVertical_bias="0.473"
+    android:fontFamily="@font/yeonsung"/>
 
-<Button
-    android:id="@+id/btn_register"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:layout_marginEnd="32dp"
-    android:backgroundTint="@color/black"
-    android:text="회원가입"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.733"
-    app:layout_constraintStart_toEndOf="@+id/btn_changepw"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.565" />
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#777374"
+        android:text="회원가입"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.733"
+        app:layout_constraintStart_toEndOf="@+id/btn_changepw"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.565"
+        android:fontFamily="@font/yeonsung"/>
 
-<Button
-    android:id="@+id/btn_login"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:text="로그인"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.661" />
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:backgroundTint="#DD9EB3"
+        android:text="로그인"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.661"
+        android:fontFamily="@font/yeonsung"/>
 
-<Button
-    android:id="@+id/btn_changepw"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:backgroundTint="@color/black"
-    android:text="Password 변경"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toStartOf="@+id/btn_register"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.563" />
+    <Button
+        android:id="@+id/btn_changepw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:backgroundTint="#777374"
+        android:text="Password 변경"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_register"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.563"
+        android:fontFamily="@font/yeonsung"/>
 
 
 
