@@ -7,7 +7,7 @@
     tools:context=".information1">
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText2"
+        android:id="@+id/hname"
         android:layout_width="220dp"
         android:layout_height="65dp"
         android:hint="hint"
@@ -22,7 +22,7 @@
         android:fontFamily="@font/yeonsung"/>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText"
+        android:id="@+id/wname"
         android:layout_width="220dp"
         android:layout_height="65dp"
         android:hint="hint"
@@ -107,7 +107,7 @@
         android:fontFamily="@font/yeonsung"/>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/reg_btn"
         android:layout_width="331dp"
         android:layout_height="57dp"
         android:layout_marginTop="656dp"
@@ -166,6 +166,7 @@
         android:fontFamily="@font/yeonsung"/>
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/place"
         android:layout_width="220dp"
         android:layout_height="65dp"
         android:hint="hint"
@@ -180,7 +181,7 @@
         android:fontFamily="@font/yeonsung"/>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText4"
+        android:id="@+id/date"
         android:layout_width="168dp"
         android:layout_height="54dp"
         android:hint="hint"
