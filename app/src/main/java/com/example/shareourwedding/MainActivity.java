@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -16,18 +18,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
-
-        findViewById(R.id.imageMenu).setOnClickListener(new View.OnClickListener() {
+        Button btn_tolog = findViewById(R.id.btn_tolog);
+        btn_tolog.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-
-                // start에 지정된 Drawer 열기
-                drawerLayout.openDrawer(GravityCompat.START);
+            public void onClick(View view)
+            {
+                // 로그인 화면으로 이동
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
-
-        NavigationView navigationView = findViewById(R.id.navigationView);
-        navigationView.setItemIconTintList(null);
     }
 }

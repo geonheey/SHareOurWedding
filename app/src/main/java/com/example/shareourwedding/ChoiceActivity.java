@@ -7,21 +7,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class choice1 extends AppCompatActivity {
+public class ChoiceActivity extends AppCompatActivity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choice1);
+        setContentView(R.layout.activity_choice);
 
-        Button button = (Button) findViewById(R.id.button2);
+        Button button = (Button) findViewById(R.id.btn_choice_1);
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), information1.class);
+                Intent intent = new Intent(ChoiceActivity.this, InputInformationActivity.class);
                 startActivity(intent);
             }
         });
+
     }
 }

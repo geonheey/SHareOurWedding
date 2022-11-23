@@ -1,15 +1,18 @@
 package com.example.shareourwedding;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,23 +28,28 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import android.content.Intent;
+import android.view.Menu;
+import android.view.MenuItem;
+
 public class LoginActivity extends AppCompatActivity
 {
     private FirebaseAuth mFirebaseAuth;      // 파이어베이스 인증
     private DatabaseReference mDatabaseRef;  // 실시간 데이터베이스
     private EditText mEtEmail, mEtPwd;
 
-    private static final String TAG = "Main_Activity";
 
-    private ImageView ivMenu;
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
+    private NavigationView navigationView;
+    AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("SHOW");
@@ -66,17 +74,18 @@ public class LoginActivity extends AppCompatActivity
                     {
                         if (task.isSuccessful()) {
                             // 로그인 성공
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, ChoiceActivity.class);
                             startActivity(intent);
-                            finish();   // 현재 액티비티 파괴(다시 쓰지 않음)
-                        }
-                        else {
-                            Toast.makeText(LoginActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_LONG).show();
+
+                        } else {
+                            Toast.makeText(LoginActivity.this, "로그인 실패", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
             }
         });
+
 
         Button btn_register = findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener()
@@ -102,21 +111,104 @@ public class LoginActivity extends AppCompatActivity
             }
         });
 
-        final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
 
-        findViewById(R.id.imageMenu).setOnClickListener(new View.OnClickListener() {
+        //메뉴
+
+        DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+
+        findViewById(R.id.imageMenu).setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
 
                 // start에 지정된 Drawer 열기
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
 
-        NavigationView navigationView = findViewById(R.id.navigationView);
-        navigationView.setItemIconTintList(null);
+
+        NavigationView nav = findViewById(R.id.navigationView);
+
+        nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
+        {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item)
+            {
+                int id = item.getItemId();
+
+                if (id == R.id.nav_1) {
+
+                    showDialogLogout();
+
+                }
+
+                else if (id == R.id.nav_2) {
+
+                    showDialogRevoke();
+                }
+
+                return true;
+            }
+        });
+
 
     }
 
+    public void showDialogLogout()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("알림");
+        builder.setMessage("정말 로그아웃 하시겠습니까?");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                logout();
+                Intent intent = new Intent(LoginActivity.this, LogoutActivity.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("NO", null);
+
+        alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    public void showDialogRevoke()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("알림");
+        builder.setMessage("정말 회원탈퇴 하시겠습니까?");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                revoke();
+                /*Intent intent = new Intent(LoginActivity.this, RevokeActivity.class);
+                startActivity(intent);*/
+            }
+        });
+        builder.setNegativeButton("NO", null);
+
+        alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void logout()
+    {
+        mFirebaseAuth.signOut();
+        finish();
+    }
+
+    private void revoke() {
+        mFirebaseAuth.getCurrentUser().delete();
+        mFirebaseAuth.signOut();
+        finish();
+    }
 }
+
 

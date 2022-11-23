@@ -9,6 +9,9 @@ public class UserAccount {
     private String password;  //비밀번호
 
     public UserAccount() {
+        //this.idToken = idToken;
+        //this.emailId = emailId;
+        //this.password = password;
     }
 
     public String getIdToken() {

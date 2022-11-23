@@ -1,30 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/nav_home"
 
-        android:title="home" />
+    <group>
+        <item
+            android:id="@+id/nav_1"
 
-    <item android:title="remote">
-        <menu>
-            <item
-                android:id="@+id/nav_remote"
+            android:title="로그아웃" />
 
-                android:title="remote_control"/>
-            <item
-                android:id="@+id/nav_addremote"
+        <item
+            android:id="@+id/nav_2"
 
-                android:title="add_remote_control"/>
-        </menu>
-    </item>
+            android:title="회원탈퇴" />
+    </group>
 
-    <item
-        android:id="@+id/nav_explain"
-
-        android:title="explain" />
-
-    <item
-        android:id="@+id/nav_settings"
-
-        android:title="ettings" />
 </menu>
