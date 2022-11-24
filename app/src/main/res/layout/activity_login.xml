@@ -117,7 +117,7 @@
             android:fontFamily="@font/yeonsung"/>
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_tochoice"
             android:layout_width="413dp"
             android:layout_height="50dp"
             android:layout_margin="8dp"
@@ -139,8 +139,8 @@
         android:id="@+id/navigationView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:headerLayout="@layout/layout_navigation_header"
-        app:menu="@menu/navigation_menu"
+        app:headerLayout="@layout/layout_navigation_header2"
+
         android:layout_gravity="start"/>
 
 

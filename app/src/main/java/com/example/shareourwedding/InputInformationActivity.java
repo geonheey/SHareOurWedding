@@ -1,6 +1,7 @@
 package com.example.shareourwedding;
 
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -8,9 +9,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultCallback;
@@ -19,6 +22,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -30,21 +34,25 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.net.DatagramPacket;
+import java.util.Calendar;
 import java.util.HashMap;
 
 
 public class InputInformationActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
-    String TAG = "information2";
-    //private ImageButton imageButton;
-
     private FirebaseAuth mFirebaseAuth;
+
+    private TextView textView_Date;
+    private DatePickerDialog.OnDateSetListener callbackMethod;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_information);
+
+        this.InitializeView();
+        this.InitializeListener();
 
         mFirebaseAuth = FirebaseAuth.getInstance();
 
@@ -53,7 +61,7 @@ public class InputInformationActivity extends AppCompatActivity {
         final EditText wname = (EditText) findViewById(R.id.wname);
         final EditText hname = (EditText) findViewById(R.id.hname);
         final EditText place = (EditText) findViewById(R.id.place);
-        final EditText date = (EditText) findViewById(R.id.date);
+        final TextView Date = findViewById(R.id.textView_date);
         ImageButton imageButton = (ImageButton) findViewById(R.id.gallerybtn);
         mDatabase = FirebaseDatabase.getInstance().getReference("SHOW");
 
@@ -64,7 +72,7 @@ public class InputInformationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String getUserHName = hname.getText().toString();
                 String getUserWName = wname.getText().toString();
-                String getUserDate = date.getText().toString();
+                String getUserDate = Date.getText().toString();
                 String getUserPlace = place.getText().toString();
 
 
@@ -117,6 +125,33 @@ public class InputInformationActivity extends AppCompatActivity {
                 dlg.show();
             }
         });
-    };
+    }
+
+
+    public void InitializeView() {
+        textView_Date = (TextView) findViewById(R.id.textView_date);
+    }
+
+    public void InitializeListener() {
+        callbackMethod = new DatePickerDialog.OnDateSetListener()
+        {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
+            {
+                textView_Date.setText(year + "." + monthOfYear + "." + dayOfMonth);
+            }
+        };
+    }
+
+    //달력버튼 클릭
+
+    public void OnClickHandler(View view)
+    {
+
+        Calendar cal = Calendar.getInstance();
+        DatePickerDialog dialog = new DatePickerDialog(this, callbackMethod, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE));
+
+        dialog.show();
+    }
 }
 

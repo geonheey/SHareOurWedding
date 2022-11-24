@@ -63,7 +63,6 @@ public class RegisterActivity extends AppCompatActivity
                             //setValue : database에 insert(삽입) 행위
                             mDatabaseRef.child("userAccount").child(firebaseUser.getUid()).setValue(account);
 
-                            /*Toast.makeText(RegisterActivity.this, "회원가입 완료!", Toast.LENGTH_SHORT).show();*/
                             Button btn_register = findViewById(R.id.btn_register);
                             btn_register.setOnClickListener(new View.OnClickListener()
                             {

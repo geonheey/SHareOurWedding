@@ -180,12 +180,13 @@
         app:layout_constraintVertical_bias="0.37"
         android:fontFamily="@font/yeonsung"/>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/date"
+    <TextView
+        android:id="@+id/textView_date"
         android:layout_width="168dp"
         android:layout_height="54dp"
         android:hint="hint"
         android:text="date"
+        android:textSize="17sp"
         android:textColor="#A19C9C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.576"
@@ -200,7 +201,7 @@
         android:layout_width="73dp"
         android:layout_height="49dp"
         android:backgroundTint="#AEA5A5"
-        android:onClick="showDatePicker"
+        android:onClick="OnClickHandler"
         android:text="달력"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"

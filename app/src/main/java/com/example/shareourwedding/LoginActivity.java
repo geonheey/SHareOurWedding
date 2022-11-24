@@ -6,17 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -28,8 +24,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import android.content.Intent;
-import android.view.Menu;
 import android.view.MenuItem;
 
 public class LoginActivity extends AppCompatActivity
@@ -57,7 +51,7 @@ public class LoginActivity extends AppCompatActivity
         mEtEmail = findViewById(R.id.et_email);
         mEtPwd = findViewById(R.id.et_password);
 
-        Button btn_login = findViewById(R.id.btn_login);
+        Button btn_login = findViewById(R.id.btn_tochoice);
         btn_login.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -74,7 +68,7 @@ public class LoginActivity extends AppCompatActivity
                     {
                         if (task.isSuccessful()) {
                             // 로그인 성공
-                            Intent intent = new Intent(LoginActivity.this, ChoiceActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_LONG).show();
 
@@ -152,6 +146,7 @@ public class LoginActivity extends AppCompatActivity
                 return true;
             }
         });
+
 
 
     }
