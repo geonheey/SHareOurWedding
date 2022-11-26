@@ -44,6 +44,7 @@ public class InputInformationActivity extends AppCompatActivity {
 
     private TextView textView_Date;
     private DatePickerDialog.OnDateSetListener callbackMethod;
+    int i = 1;
 
 
     @Override
@@ -70,6 +71,7 @@ public class InputInformationActivity extends AppCompatActivity {
         reg_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String getUserHName = hname.getText().toString();
                 String getUserWName = wname.getText().toString();
                 String getUserDate = Date.getText().toString();
@@ -83,6 +85,7 @@ public class InputInformationActivity extends AppCompatActivity {
                 result.put("Place", getUserPlace);
 
                 writeNewUser("info", getUserHName, getUserWName, getUserPlace, getUserDate);
+                writeNewUser2(Integer.toString(i++), getUserHName, getUserWName, getUserPlace, getUserDate);
 
 
             }
@@ -91,7 +94,14 @@ public class InputInformationActivity extends AppCompatActivity {
                 CoupleInfo couple  = new CoupleInfo(hname, wname, place, date);
                 mDatabase.child("userAccount").child(mFirebaseAuth.getCurrentUser().getUid()).child("couple").setValue(couple);
             }
+
+            private void writeNewUser2(String userId, String hname, String wname, String place, String date) {
+                CoupleInfo couple  = new CoupleInfo(hname, wname, place, date);
+                mDatabase.child("COUPLE").child(userId).setValue(couple);
+            }
         });
+
+
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
@@ -109,8 +119,6 @@ public class InputInformationActivity extends AppCompatActivity {
                 dlg.setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-
-                                //Intent intent = new Intent(Intent.ACTION_PICK);
                                 mGetContent.launch("image/*");
                             }
                         });
@@ -127,6 +135,7 @@ public class InputInformationActivity extends AppCompatActivity {
         });
     }
 
+    //달력이벤트 처리
 
     public void InitializeView() {
         textView_Date = (TextView) findViewById(R.id.textView_date);

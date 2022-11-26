@@ -9,9 +9,7 @@ public class CoupleInfo {
     public String date;
     public String place;
 
-    public CoupleInfo() {
-        // Default constructor required for calls to DataSnapshot.getValue(CoupleInfo.class)
-    }
+    public CoupleInfo() {}
 
     public CoupleInfo(String hname, String wname, String place, String date) {
         this.hname = hname;

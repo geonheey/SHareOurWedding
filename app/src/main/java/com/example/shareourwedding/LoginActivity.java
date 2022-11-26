@@ -124,7 +124,7 @@ public class LoginActivity extends AppCompatActivity
 
         NavigationView nav = findViewById(R.id.navigationView);
 
-        nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
+        /*nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
 
             @Override
@@ -146,7 +146,7 @@ public class LoginActivity extends AppCompatActivity
                 return true;
             }
         });
-
+*/
 
 
     }
@@ -183,8 +183,6 @@ public class LoginActivity extends AppCompatActivity
             public void onClick(DialogInterface dialogInterface, int i)
             {
                 revoke();
-                /*Intent intent = new Intent(LoginActivity.this, RevokeActivity.class);
-                startActivity(intent);*/
             }
         });
         builder.setNegativeButton("NO", null);

@@ -16,8 +16,8 @@ public class ChoiceActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice);
 
-        Button button = (Button) findViewById(R.id.btn_choice_1);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button btn_choice1 = (Button) findViewById(R.id.btn_choice_1);
+        btn_choice1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -26,5 +26,14 @@ public class ChoiceActivity extends AppCompatActivity
             }
         });
 
+        Button btn_choice2 = (Button) findViewById(R.id.btn_choice_2);
+        btn_choice2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChoiceActivity.this, SearchActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
