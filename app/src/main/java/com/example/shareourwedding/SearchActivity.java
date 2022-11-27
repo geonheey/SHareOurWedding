@@ -1,10 +1,14 @@
 package com.example.shareourwedding;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.shareourwedding.CustomAdapter;
 import com.google.firebase.database.DataSnapshot;
@@ -14,6 +18,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,53 +28,59 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.w3c.dom.Text;
+
 public class SearchActivity extends AppCompatActivity
 {
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    //private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private ArrayList<CoupleInfo> arrayList;
+    private ArrayList<CoupleInfo> list;
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
 
     private View view;
+    private CustomAdapter adapter;
 
-    @Nullable
-    public View onCreate(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    protected void onCreate(Bundle savedInstanceState)
     {
-        view = inflater.inflate(R.layout.activity_search, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        arrayList = new ArrayList<>(); // User 객체를 담을 어레이 리스트 (어댑터쪽으로)
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_search);
 
-        database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
-        databaseReference = database.getReference("COUPLE"); // DB 테이블 연결
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener()
+
+        recyclerView = findViewById(R.id.recyclerView);
+        layoutManager = new LinearLayoutManager(this);
+
+        recyclerView.setLayoutManager(layoutManager);
+        list = new ArrayList<>();
+
+        adapter = new CustomAdapter(list, this);
+        recyclerView.setAdapter(adapter);
+
+        database = FirebaseDatabase.getInstance();
+
+        databaseReference = database.getReference("SHOW");
+        databaseReference.child("COUPLE").addValueEventListener(new ValueEventListener()
         {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
-                arrayList.clear(); // 기존 배열리스트가 존재하지않게 초기화
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
-                    CoupleInfo couple = snapshot.getValue(CoupleInfo.class); // 만들어뒀던 User 객체에 데이터를 담는다.
-                    arrayList.add(couple); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    CoupleInfo couple = snapshot.getValue(CoupleInfo.class);
+
+                    list.add(couple);
                 }
-                adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침해야 반영이 됨
+
+                adapter.notifyDataSetChanged();
             }
+
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError)
+            public void onCancelled(@NonNull DatabaseError error)
             {
-                // 디비를 가져오던중 에러 발생 시
-                Log.e("SearchFragment", String.valueOf(databaseError.toException())); // 에러문 출력
+                Log.e("SearchActivity", String.valueOf(error.toException()));
             }
         });
-        adapter = new CustomAdapter(arrayList, this);
-        recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
-
-        return view;
     }
 }
+

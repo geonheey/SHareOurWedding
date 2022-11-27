@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +29,7 @@ import androidx.fragment.app.DialogFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,8 +47,6 @@ public class InputInformationActivity extends AppCompatActivity {
 
     private TextView textView_Date;
     private DatePickerDialog.OnDateSetListener callbackMethod;
-    int i = 1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class InputInformationActivity extends AppCompatActivity {
         this.InitializeListener();
 
         mFirebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();
 
         //아이디 정의
         Button reg_btn = (Button) findViewById(R.id.reg_btn);
@@ -63,6 +65,8 @@ public class InputInformationActivity extends AppCompatActivity {
         final EditText hname = (EditText) findViewById(R.id.hname);
         final EditText place = (EditText) findViewById(R.id.place);
         final TextView Date = findViewById(R.id.textView_date);
+        Button cal = (Button)findViewById(R.id.button10);
+
         ImageButton imageButton = (ImageButton) findViewById(R.id.gallerybtn);
         mDatabase = FirebaseDatabase.getInstance().getReference("SHOW");
 
@@ -78,26 +82,27 @@ public class InputInformationActivity extends AppCompatActivity {
                 String getUserPlace = place.getText().toString();
 
 
+
                 HashMap result = new HashMap<>();
                 result.put("Hname", getUserHName); //키, 값
                 result.put("Wname", getUserWName);
                 result.put("Date", getUserDate);
                 result.put("Place", getUserPlace);
 
-                writeNewUser("info", getUserHName, getUserWName, getUserPlace, getUserDate);
-                writeNewUser2(Integer.toString(i++), getUserHName, getUserWName, getUserPlace, getUserDate);
+                writeNewUser(getUserHName, getUserWName, getUserPlace, getUserDate);
+                writeNewUser2(getUserHName, getUserWName, getUserPlace, getUserDate);
 
 
             }
 
-            private void writeNewUser(String userId, String hname, String wname, String place, String date) {
+            private void writeNewUser(String hname, String wname, String place, String date) {
                 CoupleInfo couple  = new CoupleInfo(hname, wname, place, date);
                 mDatabase.child("userAccount").child(mFirebaseAuth.getCurrentUser().getUid()).child("couple").setValue(couple);
             }
 
-            private void writeNewUser2(String userId, String hname, String wname, String place, String date) {
+            private void writeNewUser2(String hname, String wname, String place, String date) {
                 CoupleInfo couple  = new CoupleInfo(hname, wname, place, date);
-                mDatabase.child("COUPLE").child(userId).setValue(couple);
+                mDatabase.child("COUPLE").child(mFirebaseAuth.getCurrentUser().getUid()).setValue(couple);
             }
         });
 
@@ -133,9 +138,14 @@ public class InputInformationActivity extends AppCompatActivity {
                 dlg.show();
             }
         });
+
+
+
     }
 
     //달력이벤트 처리
+
+
 
     public void InitializeView() {
         textView_Date = (TextView) findViewById(R.id.textView_date);
@@ -147,7 +157,11 @@ public class InputInformationActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
             {
-                textView_Date.setText(year + "." + monthOfYear + "." + dayOfMonth);
+                int y = year;
+                int m = monthOfYear + 1;
+                int d = dayOfMonth;
+
+                textView_Date.setText(y + "." + m + "." + d);
             }
         };
     }
