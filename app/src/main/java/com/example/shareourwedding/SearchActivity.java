@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.shareourwedding.CustomAdapter;
@@ -15,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -41,11 +44,18 @@ public class SearchActivity extends AppCompatActivity
 
     private View view;
     private CustomAdapter adapter;
+    private EditText et_hSearch, et_wSearch;
+    private Button btnSearch;// 회원가입 입력필드
+
 
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        et_hSearch = findViewById(R.id.et_hsearch);
+        et_wSearch = findViewById(R.id.et_wsearch);
+        btnSearch = findViewById(R.id.btn_search);
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -60,25 +70,38 @@ public class SearchActivity extends AppCompatActivity
         database = FirebaseDatabase.getInstance();
 
         databaseReference = database.getReference("SHOW");
-        databaseReference.child("COUPLE").addValueEventListener(new ValueEventListener()
+
+
+
+        btnSearch.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            public void onClick(View view)
             {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    CoupleInfo couple = snapshot.getValue(CoupleInfo.class);
+                // 회원가입 처리 시작
+                String hSearch = et_hSearch.getText().toString();
+                String wSearch = et_wSearch.getText().toString();
 
-                    list.add(couple);
-                }
+                String hAndw = hSearch + ", " + wSearch;
 
-                adapter.notifyDataSetChanged();
-            }
+                Query mQuery = databaseReference.child("COUPLE").orderByChild("handw").equalTo(hAndw);
+                mQuery.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        list.clear();
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            CoupleInfo couple = snapshot.getValue(CoupleInfo.class);
 
+                            list.add(couple);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error)
-            {
-                Log.e("SearchActivity", String.valueOf(error.toException()));
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.e("MainActivity", "onCancelled");
+                    }
+                });
             }
         });
     }

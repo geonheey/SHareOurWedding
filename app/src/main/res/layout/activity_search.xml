@@ -5,8 +5,32 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     tools:context=".SearchActivity"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="322dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_hsearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="신랑이름" />
+
+        <EditText
+            android:id="@+id/et_wsearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="신부이름"/>
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="검색" />
+
+    </LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView

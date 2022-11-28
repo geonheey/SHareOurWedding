@@ -80,6 +80,7 @@ public class InputInformationActivity extends AppCompatActivity {
                 String getUserWName = wname.getText().toString();
                 String getUserDate = Date.getText().toString();
                 String getUserPlace = place.getText().toString();
+                String getHandW = getUserHName + ", " + getUserWName;
 
 
 
@@ -90,7 +91,7 @@ public class InputInformationActivity extends AppCompatActivity {
                 result.put("Place", getUserPlace);
 
                 writeNewUser(getUserHName, getUserWName, getUserPlace, getUserDate);
-                writeNewUser2(getUserHName, getUserWName, getUserPlace, getUserDate);
+                writeNewUser2(getUserHName, getUserWName, getUserPlace, getUserDate, getHandW);
 
 
             }
@@ -100,9 +101,9 @@ public class InputInformationActivity extends AppCompatActivity {
                 mDatabase.child("userAccount").child(mFirebaseAuth.getCurrentUser().getUid()).child("couple").setValue(couple);
             }
 
-            private void writeNewUser2(String hname, String wname, String place, String date) {
-                CoupleInfo couple  = new CoupleInfo(hname, wname, place, date);
-                mDatabase.child("COUPLE").child(mFirebaseAuth.getCurrentUser().getUid()).setValue(couple);
+            private void writeNewUser2(String hname, String wname, String place, String date, String handw) {
+                CoupleInfo2 couple2  = new CoupleInfo2(hname, wname, place, date, handw);
+                mDatabase.child("COUPLE").child(mFirebaseAuth.getCurrentUser().getUid()).setValue(couple2);
             }
         });
 
