@@ -2,6 +2,7 @@ package com.example.shareourwedding;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -45,7 +46,7 @@ public class SearchActivity extends AppCompatActivity
     private View view;
     private CustomAdapter adapter;
     private EditText et_hSearch, et_wSearch;
-    private Button btnSearch;// 회원가입 입력필드
+    private Button btnSearch, btn_choice;// 회원가입 입력필드
 
 
     protected void onCreate(Bundle savedInstanceState)
@@ -56,6 +57,7 @@ public class SearchActivity extends AppCompatActivity
         et_hSearch = findViewById(R.id.et_hsearch);
         et_wSearch = findViewById(R.id.et_wsearch);
         btnSearch = findViewById(R.id.btn_search);
+        btn_choice = findViewById(R.id.btn_choice);
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -102,6 +104,14 @@ public class SearchActivity extends AppCompatActivity
                         Log.e("MainActivity", "onCancelled");
                     }
                 });
+            }
+        });
+        btn_choice.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchActivity.this, ChoiceActivity2.class);
+                startActivity(intent);
             }
         });
     }
