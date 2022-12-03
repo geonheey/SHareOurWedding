@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.shareourwedding">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,9 +15,56 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SHareOurWedding.NoActionBar"
         tools:targetApi="31">
+
+
+
+
+        <activity android:name=".ReviewActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity android:name=".WriteActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".ChoiceActivity2"
-            android:exported="false">
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -32,7 +78,7 @@
         </activity>
         <activity
             android:name=".InputInformationActivity"
-            android:exported="true">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -60,8 +106,7 @@
         </activity>
         <activity
             android:name=".CoupleInfo"
-            android:exported="true"
-            tools:ignore="Instantiatable">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -89,41 +134,13 @@
         </activity>
         <activity
             android:name=".UserAccount"
-            android:exported="false"
-            tools:ignore="Instantiatable">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="true">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".UserGallery"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"

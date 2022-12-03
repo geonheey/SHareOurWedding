@@ -12,6 +12,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class ReviewActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
 
-        databaseReference = database.getReference("SHOW"); // DB 테이블 연결
+        databaseReference = database.getReference("SHOW").child("POST"); // DB 테이블 연결
 
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
