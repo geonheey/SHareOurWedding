@@ -2,6 +2,7 @@ package com.example.shareourwedding;
 
 import static android.content.ContentValues.TAG;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -46,7 +47,7 @@ public class SearchActivity extends AppCompatActivity
     private View view;
     private CustomAdapter adapter;
     private EditText et_hSearch, et_wSearch;
-    private Button btnSearch, btn_choice;// 회원가입 입력필드
+    private Button btnSearch, btn_choice;
 
 
     protected void onCreate(Bundle savedInstanceState)
@@ -75,12 +76,14 @@ public class SearchActivity extends AppCompatActivity
 
 
 
+
+
         btnSearch.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                // 회원가입 처리 시작
+
                 String hSearch = et_hSearch.getText().toString();
                 String wSearch = et_wSearch.getText().toString();
 
@@ -106,6 +109,20 @@ public class SearchActivity extends AppCompatActivity
                 });
             }
         });
+
+        //리사이클러뷰 아이템 클릭
+        /*adapter.setOnItemClickListener(new CustomAdapter.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(View v, int pos)
+            {
+                Intent intent = new Intent(SearchActivity.this, ChoiceActivity2.class);
+                intent.putExtra("hname", )
+                startActivity(intent);
+            }
+        });*/
+
+
         btn_choice.setOnClickListener(new View.OnClickListener(){
 
             @Override

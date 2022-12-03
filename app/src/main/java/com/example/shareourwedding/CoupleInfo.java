@@ -8,18 +8,27 @@ public class CoupleInfo {
     public String hname;
     public String date;
     public String place;
+    public String idToken;
 
 
     public CoupleInfo() {}
 
-    public CoupleInfo(String hname, String wname, String place, String date) {
+    public CoupleInfo(String idToken, String hname, String wname, String place, String date) {
         this.hname = hname;
         this.wname = wname;
         this.place = place;
         this.date = date;
+        this.idToken = idToken;
 
     }
 
+    public String getIdToken() {
+        return idToken;
+    }
+
+    public void setIdToken(String idToken) {
+        this.idToken = idToken;
+    }
 
     public String getWname() {
         return wname;

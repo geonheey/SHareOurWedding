@@ -81,6 +81,7 @@ public class InputInformationActivity extends AppCompatActivity {
                 String getUserDate = Date.getText().toString();
                 String getUserPlace = place.getText().toString();
                 String getHandW = getUserHName + ", " + getUserWName;
+                String getUid = mFirebaseAuth.getCurrentUser().getUid();
 
 
 
@@ -90,19 +91,20 @@ public class InputInformationActivity extends AppCompatActivity {
                 result.put("Date", getUserDate);
                 result.put("Place", getUserPlace);
 
-                writeNewUser(getUserHName, getUserWName, getUserPlace, getUserDate);
-                writeNewUser2(getUserHName, getUserWName, getUserPlace, getUserDate, getHandW);
+
+                writeNewUser(getUid, getUserHName, getUserWName, getUserPlace, getUserDate);
+                writeNewUser2(getUid, getUserHName, getUserWName, getUserPlace, getUserDate, getHandW);
 
 
             }
 
-            private void writeNewUser(String hname, String wname, String place, String date) {
-                CoupleInfo couple  = new CoupleInfo(hname, wname, place, date);
+            private void writeNewUser(String idtoken, String hname, String wname, String place, String date) {
+                CoupleInfo couple  = new CoupleInfo(idtoken, hname, wname, place, date);
                 mDatabase.child("userAccount").child(mFirebaseAuth.getCurrentUser().getUid()).child("couple").setValue(couple);
             }
 
-            private void writeNewUser2(String hname, String wname, String place, String date, String handw) {
-                CoupleInfo2 couple2  = new CoupleInfo2(hname, wname, place, date, handw);
+            private void writeNewUser2(String idtoken, String hname, String wname, String place, String date, String handw) {
+                CoupleInfo2 couple2  = new CoupleInfo2(idtoken, hname, wname, place, date, handw);
                 mDatabase.child("COUPLE").child(mFirebaseAuth.getCurrentUser().getUid()).setValue(couple2);
             }
         });

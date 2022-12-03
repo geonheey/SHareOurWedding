@@ -6,6 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".ChoiceActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="249dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.088">
+
+        <TextView
+            android:id="@+id/s_hname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="신랑" />
+
+        <TextView
+            android:id="@+id/s_wname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="신부" />
+
+        <TextView
+            android:id="@+id/s_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="날짜" />
+
+        <TextView
+            android:id="@+id/s_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="장소" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/btn_choice_1"
         android:layout_width="290dp"
@@ -21,13 +62,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.308" />
+        app:layout_constraintVertical_bias="0.42" />
 
     <Button
         android:id="@+id/btn_choice_2"
         android:layout_width="290dp"
         android:layout_height="115dp"
         android:backgroundTint="#BCB4B7"
+        android:fontFamily="@font/yeonsung"
         android:text="이미지"
         android:textColor="@color/black"
         android:textColorLink="#00BCD4"
@@ -37,10 +79,19 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.661"
-        android:fontFamily="@font/yeonsung"/>
+        app:layout_constraintVertical_bias="0.788" />
 
-
+    <TextView
+        android:id="@+id/s_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.306" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

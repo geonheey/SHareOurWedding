@@ -13,7 +13,7 @@ public class Review_RecyclerItem {
 
 
 
-      public String getUserId() {
+    public String getUserId() {
         return userId;
     }
 
@@ -37,11 +37,15 @@ public class Review_RecyclerItem {
         this.content = content;
     }
 
-    public Review_RecyclerItem(String title, String content) {
+    public Review_RecyclerItem(String userId, String title, String content) {
         this.userId = userId;
         this.title = title;
         this.content = content;
     }
+
+
+
+
 
 
 
