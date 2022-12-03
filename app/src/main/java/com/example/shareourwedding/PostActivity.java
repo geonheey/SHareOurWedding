@@ -22,9 +22,10 @@ public class PostActivity extends AppCompatActivity {
     private DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference("SHOW");
 
     private EditText mTitle, mContents;
+    private EditText title, content;
     private Button mSave, mList;
 
-    private Intent id;
+    private Intent intent;
     String couple_id;
 
     @Override
@@ -32,12 +33,14 @@ public class PostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
 
-        id = getIntent();
+        intent = getIntent();
 
-        couple_id = id.getStringExtra("id");
+        couple_id = intent.getStringExtra("id");
 
         mTitle = findViewById(R.id.title_et);
         mContents = findViewById(R.id.content_et);
+        title = findViewById(R.id.title_et);
+        content = findViewById(R.id.content_et);
         mSave = findViewById(R.id.add_btn);
         mList = findViewById(R.id.list_btn);
 
@@ -52,17 +55,44 @@ public class PostActivity extends AppCompatActivity {
                     data.put("title", mTitle.getText().toString());
                     data.put("content", mContents.getText().toString());
 
+                    //String getUserId =  mAuth.getCurrentUser().getUid();
+                    String getTitle = title.getText().toString();
+                    String getContent = content.getText().toString();
+                    //String getTtAct = getTitle + ", " + getContent;
+
                     mDatabaseRef.child(mTitle.getText().toString()).setValue(data);
 
+                    HashMap result = new HashMap<>();
+                    //result.put("UserId", getUserId); //키, 값
+                    result.put("Title", getTitle);
+                    result.put("Content", getContent);
+                    //result.put("TtAct", getTtAct);
+
+                    writeNewUser(getTitle, getContent);
+                    writeNewUser2(getTitle, getContent);
+
                 }
+
+            }
+            private void writeNewUser(String mTitle, String mContents) {
+                RecyclerItem Rinfo  = new RecyclerItem(mTitle, mContents);
+                mDatabaseRef.child("userAccount").child(mAuth.getCurrentUser().getUid()).child("post").setValue(Rinfo);
+            }
+
+            private void writeNewUser2(String mTitle, String mContents) {
+                RecyclerItem2 Rinfo2  = new RecyclerItem2(mTitle, mContents);
+                mDatabaseRef.child("POST").child(couple_id).child(mAuth.getCurrentUser().getUid()).setValue(Rinfo2);
             }
 
         });
+
         mList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PostActivity.this, ReviewActivity.class);
-                startActivity(intent);
+                Intent id = new Intent(PostActivity.this, ReviewActivity.class);
+                id.putExtra("id", couple_id);
+
+                startActivity(id);
 
                 }
             });

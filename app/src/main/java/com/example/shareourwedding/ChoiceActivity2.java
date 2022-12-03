@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class ChoiceActivity2 extends AppCompatActivity {
 
     private Intent intent;
-    String hname, wname, date, place, id;
+    String hname, wname, date, place, str_id;
     TextView s_hname, s_wname, s_date, s_place, s_id;
 
     @Override
@@ -24,7 +24,7 @@ public class ChoiceActivity2 extends AppCompatActivity {
         wname = intent.getStringExtra("wname");
         date = intent.getStringExtra("date");
         place = intent.getStringExtra("place");
-        id = intent.getStringExtra("id");
+        str_id = intent.getStringExtra("id");
 
 
 
@@ -38,7 +38,7 @@ public class ChoiceActivity2 extends AppCompatActivity {
         s_wname.setText(wname);
         s_date.setText(date);
         s_place.setText(place);
-        s_id.setText(id);
+        s_id.setText(str_id);
 
 
 
@@ -48,7 +48,7 @@ public class ChoiceActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent id = new Intent(ChoiceActivity2.this, PostActivity.class);
-                id.putExtra("id", id);
+                id.putExtra("id", str_id);
                 startActivity(id);
             }
         });

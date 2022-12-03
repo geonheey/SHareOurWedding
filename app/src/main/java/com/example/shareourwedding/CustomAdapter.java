@@ -95,22 +95,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         {
             super(itemView);
 
-            /*itemView.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-
-                    int pos = getAdapterPosition();
-                    // 리스너 객체의 메서드 호출
-                    if (pos != RecyclerView.NO_POSITION)
-                    {
-                        mListener.onItemClick(v, pos);
-                    }
-
-                }
-            });*/
-
             this.tv_hname = itemView.findViewById(R.id.tv_hname);
             this.tv_wname = itemView.findViewById(R.id.tv_wname);
             this.tv_date = itemView.findViewById(R.id.tv_date);
