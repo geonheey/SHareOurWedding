@@ -1,5 +1,6 @@
 package com.example.shareourwedding;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -31,6 +32,8 @@ public class ImageMainActivity extends AppCompatActivity {
 
     private ImageView imageView;
     private ProgressBar progressBar;
+    private Intent intent;
+    private String couple_id;
 
     private final DatabaseReference root = FirebaseDatabase.getInstance().getReference("SHOW").child("IMAGE");
     private final StorageReference reference = FirebaseStorage.getInstance().getReference();
@@ -41,6 +44,10 @@ public class ImageMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_main);
+
+        intent = getIntent();
+
+        couple_id = intent.getStringExtra("id");
 
         //컴포넌트 객체에 담기
         Button uploadBtn = findViewById(R.id.upload_btn);
@@ -82,7 +89,10 @@ public class ImageMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(ImageMainActivity.this, ImageActivity.class));
+                Intent id = new Intent(ImageMainActivity.this, ImageActivity.class);
+                id.putExtra("id", couple_id);
+
+                startActivity(id);
             }
         });
     }//onCreate
@@ -109,7 +119,7 @@ public class ImageMainActivity extends AppCompatActivity {
                         String modelId = root.push().getKey();
 
                         //데이터 넣기
-                        root.child(modelId).setValue(model);
+                        root.child(couple_id).child(modelId).setValue(model);
 
                         //프로그래스바 숨김
                         progressBar.setVisibility(View.INVISIBLE);
