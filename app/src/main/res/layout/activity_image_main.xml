@@ -28,6 +28,7 @@
         android:layout_marginTop="50dp"
         android:text="UPLOAD"
         android:textSize="20sp"
+        android:backgroundTint="#DD9EB3"
         android:id="@+id/upload_btn"/>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -38,5 +39,6 @@
         android:layout_marginTop="50dp"
         android:text="IMAGE LIST"
         android:textSize="20sp"
+        android:backgroundTint="#DD9EB3"
         android:id="@+id/image_list_btn"/>
 </LinearLayout>

@@ -22,28 +22,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="신랑" />
+            android:fontFamily="@font/yeonsung"
+            android:text="신랑"
+            android:textSize="19sp"/>
 
         <TextView
             android:id="@+id/s_wname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="신부" />
+            android:text="신부"
+            android:fontFamily="@font/yeonsung"
+            android:textSize="19sp"/>
 
         <TextView
             android:id="@+id/s_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="날짜" />
+            android:text="날짜"
+            android:fontFamily="@font/yeonsung"
+            android:textSize="19sp"/>
 
         <TextView
             android:id="@+id/s_place"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="장소" />
+            android:text="장소"
+            android:fontFamily="@font/yeonsung"
+            android:textSize="19sp"/>
 
     </LinearLayout>
 

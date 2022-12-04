@@ -15,7 +15,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="제목"/>
+            android:text="제목"
+            android:fontFamily="@font/yeonsung"
+            android:textSize="20sp"/>
 
         <EditText
             android:id="@+id/title_et"
@@ -25,14 +27,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="제목을 입력하세요."
-            />
+            android:fontFamily="@font/yeonsung"/>
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="내용"/>
+        android:text="내용"
+        android:textSize="20sp"
+        android:fontFamily="@font/yeonsung"/>
 
     <EditText
         android:id="@+id/content_et"
@@ -41,20 +45,27 @@
         android:layout_weight="1"
         android:background="#eeeeee"
         android:hint="내용을 입력하세요."
-        android:padding="16dp" />
+        android:padding="16dp"
+        android:fontFamily="@font/yeonsung"/>
 
     <Button
         android:id="@+id/add_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="등록"/>
+        android:backgroundTint="#DD9EB3"
+        android:fontFamily="@font/yeonsung"
+        android:text="등록"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/list_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:backgroundTint="#DD9EB3"
+        android:fontFamily="@font/yeonsung"
+        android:textSize="20sp"
         android:text="리스트"/>
 
 

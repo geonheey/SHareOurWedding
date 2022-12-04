@@ -16,25 +16,35 @@
             android:id="@+id/et_hsearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="신랑이름" />
+            android:hint="신랑이름"
+            android:fontFamily="@font/yeonsung"
+            android:textSize="20sp"/>
 
         <EditText
             android:id="@+id/et_wsearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="신부이름"/>
+            android:hint="신부이름"
+            android:fontFamily="@font/yeonsung"
+            android:textSize="20sp"/>
 
         <Button
             android:id="@+id/btn_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="검색" />
+            android:text="검색"
+            android:fontFamily="@font/yeonsung"
+            android:textSize="18sp"
+            android:backgroundTint="#DD9EB3"/>
         <Button
             android:id="@+id/btn_choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="업로드" />
+            android:text="업로드"
+            android:textSize="18sp"
+            android:fontFamily="@font/yeonsung"
+            android:backgroundTint="#DD9EB3"/>
 
     </LinearLayout>
 
