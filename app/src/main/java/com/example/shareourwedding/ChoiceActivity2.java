@@ -58,7 +58,7 @@ public class ChoiceActivity2 extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChoiceActivity2.this, ChoiceActivity2.class);
+                Intent intent = new Intent(ChoiceActivity2.this, ImageMainActivity.class);
                 startActivity(intent);
             }
         });
