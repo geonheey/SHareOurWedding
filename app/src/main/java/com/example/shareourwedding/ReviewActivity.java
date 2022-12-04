@@ -43,8 +43,8 @@ public class ReviewActivity extends AppCompatActivity {
 
         String couple_id = intent.getStringExtra("id");
 
-        /*TextView show_id = findViewById(R.id.show_id);
-        show_id.setText(couple_id);*/
+        TextView show_id = findViewById(R.id.show_id);
+        show_id.setText(couple_id);
 
 
 
@@ -60,7 +60,7 @@ public class ReviewActivity extends AppCompatActivity {
         databaseReference = database.getReference("SHOW"); // DB 테이블 연결
 
 
-        Query mQuery = databaseReference.child("POST").orderByChild("coupleId").equalTo(couple_id);
+        Query mQuery = databaseReference.child("POST").child(couple_id);
         mQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

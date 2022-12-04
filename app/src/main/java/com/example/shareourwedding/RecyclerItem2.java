@@ -7,23 +7,23 @@ public class RecyclerItem2 {
 
     private String title;
     private String content;
-    private String coupleId;
+    private String userId;
 
     public RecyclerItem2(){};
 
 
 
-    public RecyclerItem2(String title, String content, String coupleId) {
+    public RecyclerItem2(String title, String content, String userId) {
         this.title = title;
         this.content = content;
-        this.coupleId = coupleId;
+        this.userId = userId;
     }
 
 
-    public String getCoupleId() { return coupleId; }
+    public String getUserId() { return userId; }
 
-    public void setCoupleId(String userId) {
-        this.coupleId = userId;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getTitle() {
