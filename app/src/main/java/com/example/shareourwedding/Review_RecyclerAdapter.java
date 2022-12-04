@@ -65,7 +65,6 @@ public class Review_RecyclerAdapter extends RecyclerView.Adapter<Review_Recycler
         void onBind(RecyclerItem data) {
             tv_title.setText(data.getTitle());
             tv_content.setText(data.getContent());
-
         }
     }
 }

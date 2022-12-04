@@ -26,7 +26,7 @@ public class PostActivity extends AppCompatActivity {
     private Button mSave, mList;
 
     private Intent intent;
-    String couple_id;
+    private String couple_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +69,7 @@ public class PostActivity extends AppCompatActivity {
                     //result.put("TtAct", getTtAct);
 
                     writeNewUser(getTitle, getContent);
-                    writeNewUser2(getTitle, getContent);
+                    writeNewUser2(getTitle, getContent, couple_id);
 
                 }
 
@@ -79,9 +79,9 @@ public class PostActivity extends AppCompatActivity {
                 mDatabaseRef.child("userAccount").child(mAuth.getCurrentUser().getUid()).child("post").setValue(Rinfo);
             }
 
-            private void writeNewUser2(String mTitle, String mContents) {
-                RecyclerItem2 Rinfo2  = new RecyclerItem2(mTitle, mContents);
-                mDatabaseRef.child("POST").child(couple_id).child(mAuth.getCurrentUser().getUid()).setValue(Rinfo2);
+            private void writeNewUser2(String mTitle, String mContents, String coupleId) {
+                RecyclerItem2 Rinfo2  = new RecyclerItem2(mTitle, mContents, coupleId);
+                mDatabaseRef.child("POST").child(mAuth.getCurrentUser().getUid()).setValue(Rinfo2);
             }
 
         });
