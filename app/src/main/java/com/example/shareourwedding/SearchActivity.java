@@ -1,20 +1,12 @@
 package com.example.shareourwedding;
 
-import static android.content.ContentValues.TAG;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import com.example.shareourwedding.CustomAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,24 +15,18 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.w3c.dom.Text;
 
 public class SearchActivity extends AppCompatActivity
 {
     private RecyclerView recyclerView;
     //private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private ArrayList<CoupleInfo> list;
+    private ArrayList<CoupleInfo2> list;
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
 
@@ -65,7 +51,7 @@ public class SearchActivity extends AppCompatActivity
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setLayoutManager(layoutManager);
-        list = new ArrayList<>();
+        list = new ArrayList<CoupleInfo2>();
 
         adapter = new CustomAdapter(list, this);
         recyclerView.setAdapter(adapter);
@@ -95,9 +81,9 @@ public class SearchActivity extends AppCompatActivity
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         list.clear();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            CoupleInfo couple = snapshot.getValue(CoupleInfo.class);
+                            CoupleInfo2 couple2 = snapshot.getValue(CoupleInfo2.class);
 
-                            list.add(couple);
+                            list.add(couple2);
                         }
                         adapter.notifyDataSetChanged();
                     }
