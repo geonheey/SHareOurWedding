@@ -182,19 +182,19 @@
 
     <TextView
         android:id="@+id/textView_date"
-        android:layout_width="168dp"
-        android:layout_height="54dp"
+        android:layout_width="173dp"
+        android:layout_height="32dp"
+        android:fontFamily="@font/yeonsung"
         android:hint="hint"
         android:text="date"
-        android:textSize="17sp"
         android:textColor="#A19C9C"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.576"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.53"
-        android:fontFamily="@font/yeonsung"/>
+        app:layout_constraintVertical_bias="0.53" />
 
     <Button
         android:id="@+id/button10"
@@ -212,5 +212,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.526"
         android:fontFamily="@font/yeonsung"/>
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="43dp"
+        android:layout_height="37dp"
+        android:background="#00ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.967"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025"
+        app:srcCompat="@drawable/tb1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
