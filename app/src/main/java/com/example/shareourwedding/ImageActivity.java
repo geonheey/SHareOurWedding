@@ -32,7 +32,7 @@ public class ImageActivity extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth;
     private Intent intent;
 
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("SHOW").child("IMAGE");
+   // private DatabaseReference root = FirebaseDatabase.getInstance().getReference("SHOW").child("IMAGE");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class ImageActivity extends AppCompatActivity {
 
         databaseReference = database.getReference("SHOW"); // DB 테이블 연결
 
-        Query mQuery = databaseReference.child("IMAGE").child(couple_id);
+        Query mQuery = databaseReference.child("IMAGE");
         mQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

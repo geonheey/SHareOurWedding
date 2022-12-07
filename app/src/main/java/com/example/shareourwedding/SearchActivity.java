@@ -33,7 +33,7 @@ public class SearchActivity extends AppCompatActivity
     private View view;
     private CustomAdapter adapter;
     private EditText et_hSearch, et_wSearch;
-    private Button btnSearch, btn_choice;
+    private Button btnSearch;
 
 
     protected void onCreate(Bundle savedInstanceState)
@@ -44,7 +44,7 @@ public class SearchActivity extends AppCompatActivity
         et_hSearch = findViewById(R.id.et_hsearch);
         et_wSearch = findViewById(R.id.et_wsearch);
         btnSearch = findViewById(R.id.btn_search);
-        btn_choice = findViewById(R.id.btn_choice);
+       // btn_choice = findViewById(R.id.btn_choice);
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -107,16 +107,6 @@ public class SearchActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });*/
-
-
-        btn_choice.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SearchActivity.this, ChoiceActivity2.class);
-                startActivity(intent);
-            }
-        });
     }
 }
 

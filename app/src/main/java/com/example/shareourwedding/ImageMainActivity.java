@@ -2,6 +2,7 @@ package com.example.shareourwedding;
 
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -58,7 +60,7 @@ public class ImageMainActivity extends AppCompatActivity {
         progressBar.setVisibility(View.INVISIBLE);
 
         //이미지 클릭 이벤트
-        imageView.setOnClickListener(new View.OnClickListener() {
+        /*imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -66,6 +68,42 @@ public class ImageMainActivity extends AppCompatActivity {
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
                 galleryIntent.setType("image/*");
                 activityResult.launch(galleryIntent);
+            }
+        });*/
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
+                    new ActivityResultCallback<Uri>() {
+                        @Override
+                        public void onActivityResult(Uri uri) {
+                            imageView.setImageURI(uri);
+                        }
+                    });
+
+            public void onClick(View v) {
+                AlertDialog.Builder dlg = new AlertDialog.Builder(ImageMainActivity.this);
+                dlg.setTitle("알람");
+                dlg.setMessage("갤러리로 이동하시겠습니까?");
+                dlg.setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                mGetContent.launch("image/*");
+                                Intent galleryIntent = new Intent();
+                                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+                                galleryIntent.setType("image/*");
+                                activityResult.launch(galleryIntent);
+
+                            }
+                        });
+
+                dlg.setNegativeButton("CANCEL",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+
+                dlg.show();
             }
         });
 

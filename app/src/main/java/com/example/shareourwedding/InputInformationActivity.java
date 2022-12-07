@@ -90,7 +90,7 @@ public class InputInformationActivity extends AppCompatActivity {
 
         imageView = findViewById(R.id.gallerybtn);
         mDatabase = FirebaseDatabase.getInstance().getReference("SHOW");
-        progressBar = findViewById(R.id.progress_View);
+        //progressBar = findViewById(R.id.progress_View);
 
 
         //온클릭리스너
@@ -123,7 +123,11 @@ public class InputInformationActivity extends AppCompatActivity {
                     Toast.makeText(InputInformationActivity.this, "사진을 선택해주세요",
                             Toast.LENGTH_SHORT).show();
                 }
+                Toast.makeText(InputInformationActivity.this, "업로드 성공",
+                                Toast.LENGTH_SHORT).show();
 
+                Intent intent = new Intent(InputInformationActivity.this, ChoiceActivity.class);
+                startActivity(intent);
 
             }
 
@@ -207,30 +211,30 @@ public class InputInformationActivity extends AppCompatActivity {
                         //데이터 넣기
                         root.child(mFirebaseAuth.getCurrentUser().getUid()).setValue(couple);
 
-                        //프로그래스바 숨김
-                        progressBar.setVisibility(View.INVISIBLE);
-
-                        Toast.makeText(InputInformationActivity.this, "업로드 성공",
-                                Toast.LENGTH_SHORT).show();
-
-                        imageView.setImageResource(R.drawable.ic_add_photo);
+//                        //프로그래스바 숨김
+//                        progressBar.setVisibility(View.INVISIBLE);
+//
+//
+//
+//                        imageView.setImageResource(R.drawable.ic_add_photo);
                     }
                 });
             }
-        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                //프로그래스바 보여주기
-                progressBar.setVisibility(View.VISIBLE);
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                //실패
-                Toast.makeText(InputInformationActivity.this, "업로드 실패", Toast.LENGTH_SHORT).show();
-            }
+//        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+//            @Override
+//            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+//                //프로그래스바 보여주기
+//                progressBar.setVisibility(View.VISIBLE);
+//
+//            }
         });
+//                .addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                //실패
+//                Toast.makeText(InputInformationActivity.this, "업로드 실패", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     private String getFileExtension(Uri uri){

@@ -14,12 +14,18 @@
         android:padding="5dp"
         android:id = "@+id/layout_container">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_couple"
+                android:layout_width="100dp"
+                android:layout_height="130dp"
+                tools:srcCompat="@tools:sample/avatars" />
 
         <LinearLayout
-            android:layout_width="249dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:orientation="vertical">
@@ -29,44 +35,43 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="신랑"
                 android:fontFamily="@font/yeonsung"
-                android:textSize="19sp"/>
+                android:text="신랑"
+                android:textSize="19sp" />
 
             <TextView
                 android:id="@+id/tv_wname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="신부"
                 android:fontFamily="@font/yeonsung"
-                android:textSize="19sp"/>
+                android:text="신부"
+                android:textSize="19sp" />
 
             <TextView
                 android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="날짜"
                 android:fontFamily="@font/yeonsung"
-                android:textSize="19sp"/>
+                android:text="날짜"
+                android:textSize="19sp" />
 
             <TextView
                 android:id="@+id/tv_place"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="장소"
                 android:fontFamily="@font/yeonsung"
-                android:textSize="19sp"/>
+                android:text="장소"
+                android:textSize="19sp" />
 
-        </LinearLayout>
 
-        <ImageView
-            android:id="@+id/iv_couple"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
+
+
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
