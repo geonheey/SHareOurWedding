@@ -7,51 +7,106 @@
     tools:context=".ChoiceActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="249dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_width="307dp"
+        android:layout_height="134dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088">
+        app:layout_constraintVertical_bias="0.108">
 
-        <TextView
-            android:id="@+id/s_hname"
+        <ImageView
+            android:id="@+id/s_imageurl"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:fontFamily="@font/yeonsung"
-            android:text="신랑"
-            android:textSize="19sp"/>
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/s_wname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="신부"
-            android:fontFamily="@font/yeonsung"
-            android:textSize="19sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/yeonsung"
+                android:text="신랑"
+                android:textSize="19sp" />
 
-        <TextView
-            android:id="@+id/s_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="날짜"
-            android:fontFamily="@font/yeonsung"
-            android:textSize="19sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/yeonsung"
+                android:text="신부"
+                android:textSize="19sp" />
 
-        <TextView
-            android:id="@+id/s_place"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/yeonsung"
+                android:text="날짜"
+                android:textSize="19sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/yeonsung"
+                android:text="장소"
+                android:textSize="19sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="장소"
-            android:fontFamily="@font/yeonsung"
-            android:textSize="19sp"/>
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/s_hname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/yeonsung"
+                android:text="신랑"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/s_wname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/yeonsung"
+                android:text="신부"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/s_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/yeonsung"
+                android:text="날짜"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/s_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/yeonsung"
+                android:text="장소"
+                android:textSize="19sp" />
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
@@ -70,7 +125,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42" />
+        app:layout_constraintVertical_bias="0.454" />
 
     <Button
         android:id="@+id/btn_choice_2"
@@ -99,7 +154,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.306" />
+        app:layout_constraintVertical_bias="0.326" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -60,7 +60,7 @@ public class ImageMainActivity extends AppCompatActivity {
         progressBar.setVisibility(View.INVISIBLE);
 
         //이미지 클릭 이벤트
-        /*imageView.setOnClickListener(new View.OnClickListener() {
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -69,9 +69,9 @@ public class ImageMainActivity extends AppCompatActivity {
                 galleryIntent.setType("image/*");
                 activityResult.launch(galleryIntent);
             }
-        });*/
+        });
 
-        imageView.setOnClickListener(new View.OnClickListener() {
+        /*imageView.setOnClickListener(new View.OnClickListener() {
             ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
                     new ActivityResultCallback<Uri>() {
                         @Override
@@ -105,7 +105,7 @@ public class ImageMainActivity extends AppCompatActivity {
 
                 dlg.show();
             }
-        });
+        });*/
 
         //업로드버튼 클릭이벤트
         uploadBtn.setOnClickListener(new View.OnClickListener() {

@@ -67,31 +67,6 @@ public class MainActivity extends AppCompatActivity
         });
 
 
-        Button btn_register = findViewById(R.id.btn_register);
-        btn_register.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                // 회원가입 화면으로 이동
-                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        Button btn_changepw = findViewById(R.id.btn_changepw);
-        btn_changepw.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                // 비밀번호 변경 화면으로 이동
-                Intent intent = new Intent(MainActivity.this, ChangePwActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
         //메뉴
 
         DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);

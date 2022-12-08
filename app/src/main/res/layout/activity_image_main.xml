@@ -15,21 +15,6 @@
         android:src="@drawable/ic_add_photo"
         android:id="@+id/image_view"/>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="216dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="112dp"
-        android:fontFamily="@font/yeonsung"
-        android:text="(클릭 시 갤러리로 이동합니다)"
-        android:textSize="23dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.717"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.81" />
-
     <ProgressBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,13 +32,13 @@
         android:id="@+id/upload_btn"/>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/image_list_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
         android:layout_marginTop="50dp"
-        android:text="IMAGE LIST"
-        android:textSize="20sp"
+        android:layout_marginEnd="15dp"
         android:backgroundTint="#DD9EB3"
-        android:id="@+id/image_list_btn"/>
+        android:text="IMAGE LIST"
+        android:textSize="20sp" />
 </LinearLayout>

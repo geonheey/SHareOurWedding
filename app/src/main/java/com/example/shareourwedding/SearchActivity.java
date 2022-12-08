@@ -1,12 +1,20 @@
 package com.example.shareourwedding;
 
+import static android.content.ContentValues.TAG;
+
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.example.shareourwedding.CustomAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,11 +23,18 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.w3c.dom.Text;
 
 public class SearchActivity extends AppCompatActivity
 {
@@ -44,14 +59,17 @@ public class SearchActivity extends AppCompatActivity
         et_hSearch = findViewById(R.id.et_hsearch);
         et_wSearch = findViewById(R.id.et_wsearch);
         btnSearch = findViewById(R.id.btn_search);
-       // btn_choice = findViewById(R.id.btn_choice);
+
 
 
         recyclerView = findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setLayoutManager(layoutManager);
-        list = new ArrayList<CoupleInfo2>();
+
+
+
+        list = new ArrayList<>();
 
         adapter = new CustomAdapter(list, this);
         recyclerView.setAdapter(adapter);
@@ -59,6 +77,8 @@ public class SearchActivity extends AppCompatActivity
         database = FirebaseDatabase.getInstance();
 
         databaseReference = database.getReference("SHOW");
+
+
 
 
 
@@ -96,17 +116,7 @@ public class SearchActivity extends AppCompatActivity
             }
         });
 
-        //리사이클러뷰 아이템 클릭
-        /*adapter.setOnItemClickListener(new CustomAdapter.OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(View v, int pos)
-            {
-                Intent intent = new Intent(SearchActivity.this, ChoiceActivity2.class);
-                intent.putExtra("hname", )
-                startActivity(intent);
-            }
-        });*/
+
     }
 }
 

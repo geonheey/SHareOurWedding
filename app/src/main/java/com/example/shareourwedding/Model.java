@@ -5,7 +5,6 @@ public class Model {
     private String imageUrl;
 
     Model(){
-
     }
 
     public Model(String imageUrl) {

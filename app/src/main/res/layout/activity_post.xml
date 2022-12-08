@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="제목"
+            android:text="이름"
             android:fontFamily="@font/yeonsung"
             android:textSize="20sp"/>
 
@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="제목을 입력하세요."
+            android:hint="이름을 입력하세요."
             android:fontFamily="@font/yeonsung"/>
     </LinearLayout>
 
@@ -55,7 +55,7 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="#DD9EB3"
         android:fontFamily="@font/yeonsung"
-        android:text="등록"
+        android:text="업로드"
         android:textSize="20sp" />
 
     <Button

@@ -52,7 +52,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         holder.tv_date.setText(list.get(position).getDate());
         holder.tv_place.setText(list.get(position).getPlace());
 
-        //holder.onBind(list.get(position));
+        holder.onBind(list.get(position));
 
         holder.itemView.setOnClickListener(new View.OnClickListener()
         {
@@ -64,6 +64,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                 String date = holder.tv_date.getText().toString();
                 String place = holder.tv_place.getText().toString();
                 String id = holder.id;
+                String imageurl = holder.imageurl;
 
                 Intent intent = new Intent(context, ChoiceActivity2.class);
 
@@ -72,6 +73,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                 intent.putExtra("date", date);
                 intent.putExtra("place", place);
                 intent.putExtra("id", id);
+                intent.putExtra("imageurl", imageurl);
 
                 context.startActivity(intent);
 
@@ -97,7 +99,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         TextView tv_date;
         TextView tv_place;
         CardView card_view;
-        String id;
+        String id, imageurl;
 
         public CustomViewHolder(@NonNull View itemView)
         {
@@ -118,6 +120,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
             tv_date.setText(data.getDate());
             tv_place.setText(data.getPlace());*/
             id = data.getIdToken();
+            imageurl = data.getImageUrl();
+
         }
     }
 }

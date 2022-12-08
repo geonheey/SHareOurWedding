@@ -37,7 +37,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-       // Model model = list.get(position);
+        Model model = list.get(position);
        Glide.with(context).load(list.get(position).getImageUrl()).into(holder.mImageView);
        // holder.mImageView.setImageResource(R.drawable.ic_launcher_background);
     }

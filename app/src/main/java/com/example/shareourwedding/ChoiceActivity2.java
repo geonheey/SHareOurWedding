@@ -1,18 +1,28 @@
 package com.example.shareourwedding;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 public class ChoiceActivity2 extends AppCompatActivity {
 
     private Intent intent;
-    String hname, wname, date, place, str_id;
+    String hname, wname, date, place, str_id, imageurl;
     TextView s_hname, s_wname, s_date, s_place, s_id;
+    ImageView s_imageurl;
+    private Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,22 +35,23 @@ public class ChoiceActivity2 extends AppCompatActivity {
         date = intent.getStringExtra("date");
         place = intent.getStringExtra("place");
         str_id = intent.getStringExtra("id");
+        imageurl = intent.getStringExtra("imageurl");
 
-
+        Uri myUri = Uri.parse(imageurl);
 
         s_hname = findViewById(R.id.s_hname);
         s_wname = findViewById(R.id.s_wname);
         s_date = findViewById(R.id.s_date);
         s_place = findViewById(R.id.s_place);
         s_id = findViewById(R.id.s_id);
+        s_imageurl = findViewById(R.id.s_imageurl);
 
         s_hname.setText(hname);
         s_wname.setText(wname);
         s_date.setText(date);
         s_place.setText(place);
         s_id.setText(str_id);
-
-
+        Glide.with(this).load(myUri).into(s_imageurl);
 
         Button btn_choice1 = (Button) findViewById(R.id.btn_choice_1);
         btn_choice1.setOnClickListener(new View.OnClickListener() {
