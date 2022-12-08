@@ -17,7 +17,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +39,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -55,12 +53,10 @@ public class InputInformationActivity extends AppCompatActivity {
 
     private TextView textView_Date;
     private DatePickerDialog.OnDateSetListener callbackMethod;
-
     private final DatabaseReference root = FirebaseDatabase.getInstance().getReference("SHOW").child("COUPLE");
     private final StorageReference reference = FirebaseStorage.getInstance().getReference();
 
     private Uri imageUri;
-    private ProgressBar progressBar;
     private ImageView imageView;
     String getUserHName;
     String getUserWName;
@@ -90,7 +86,6 @@ public class InputInformationActivity extends AppCompatActivity {
 
         imageView = findViewById(R.id.gallerybtn);
         mDatabase = FirebaseDatabase.getInstance().getReference("SHOW");
-        //progressBar = findViewById(R.id.progress_View);
 
 
         //온클릭리스너
@@ -114,7 +109,7 @@ public class InputInformationActivity extends AppCompatActivity {
                 result.put("Place", getUserPlace);
 
 
-                //writeNewUser(getUid, getUserHName, getUserWName, getUserPlace, getUserDate);
+                writeNewUser(getUid, getUserHName, getUserWName, getUserPlace, getUserDate);
                 //writeNewUser2(getUid, getUserHName, getUserWName, getUserPlace, getUserDate, getHandW);
 
                 if(imageUri != null){
@@ -124,56 +119,23 @@ public class InputInformationActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 }
                 Toast.makeText(InputInformationActivity.this, "업로드 성공",
-                                Toast.LENGTH_SHORT).show();
+                        Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(InputInformationActivity.this, ChoiceActivity.class);
                 startActivity(intent);
 
             }
 
-            /*private void writeNewUser(String idtoken, String hname, String wname, String place, String date) {
-                CoupleInfo couple  = new CoupleInfo(idtoken, hname, wname, place, date, );
+            private void writeNewUser(String idtoken, String hname, String wname, String place, String date) {
+                CoupleInfo couple  = new CoupleInfo(idtoken, hname, wname, place, date);
                 mDatabase.child("userAccount").child(mFirebaseAuth.getCurrentUser().getUid()).child("couple").setValue(couple);
-            }*/
+            }
 
             /*private void writeNewUser2(String idtoken, String hname, String wname, String place, String date, String handw) {
                 CoupleInfo2 couple2  = new CoupleInfo2(idtoken, hname, wname, place, date, handw);
                 mDatabase.child("COUPLE").child(mFirebaseAuth.getCurrentUser().getUid()).setValue(couple2);
             }*/
         });
-
-
-
-        /*imageButton.setOnClickListener(new View.OnClickListener() {
-            ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
-                    new ActivityResultCallback<Uri>() {
-                        @Override
-                        public void onActivityResult(Uri uri) {
-                            imageButton.setImageURI(uri);
-                        }
-                    });
-
-            public void onClick(View v) {
-                AlertDialog.Builder dlg = new AlertDialog.Builder(InputInformationActivity.this);
-                dlg.setTitle("알람");
-                dlg.setMessage("갤러리로 이동하시겠습니까?");
-                dlg.setPositiveButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                mGetContent.launch("image/*");
-                            }
-                        });
-
-                dlg.setNegativeButton("CANCEL",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-
-                            }
-                        });
-
-                dlg.show();
-            }
-        });*/
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,7 +149,15 @@ public class InputInformationActivity extends AppCompatActivity {
         });
 
 
+
+
+
+
+
+
+
     }
+
 
     private void uploadToFirebase(Uri uri) {
 
@@ -265,8 +235,9 @@ public class InputInformationActivity extends AppCompatActivity {
                 }
             });
 
-
     //달력이벤트 처리
+
+
 
     public void InitializeView() {
         textView_Date = (TextView) findViewById(R.id.textView_date);

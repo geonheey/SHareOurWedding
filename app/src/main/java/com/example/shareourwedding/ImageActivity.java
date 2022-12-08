@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,7 +33,7 @@ public class ImageActivity extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth;
     private Intent intent;
 
-   // private DatabaseReference root = FirebaseDatabase.getInstance().getReference("SHOW").child("IMAGE");
+    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("SHOW").child("IMAGE");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,10 @@ public class ImageActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
 
         list = new ArrayList<>();
 
@@ -56,12 +60,17 @@ public class ImageActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
+
+
+
+
+
         database = FirebaseDatabase.getInstance(); // 파이어베이스 데이터베이스 연동
         mFirebaseAuth = FirebaseAuth.getInstance();
 
         databaseReference = database.getReference("SHOW"); // DB 테이블 연결
 
-        Query mQuery = databaseReference.child("IMAGE");
+        Query mQuery = databaseReference.child("IMAGE").child(couple_id);
         mQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

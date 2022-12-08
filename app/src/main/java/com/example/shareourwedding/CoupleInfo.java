@@ -9,29 +9,18 @@ public class CoupleInfo {
     public String date;
     public String place;
     public String idToken;
-    public String imageUrl;
 
 
     public CoupleInfo() {}
 
-    public CoupleInfo(String idToken, String hname, String wname, String place, String date, String imageUrl) {
+    public CoupleInfo(String idToken, String hname, String wname, String place, String date) {
         this.hname = hname;
         this.wname = wname;
         this.place = place;
         this.date = date;
         this.idToken = idToken;
-        this.imageUrl = imageUrl;
 
     }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
 
     public String getIdToken() {
         return idToken;
