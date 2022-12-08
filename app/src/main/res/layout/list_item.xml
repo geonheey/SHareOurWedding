@@ -18,6 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/iv_couple"
                 android:layout_width="100dp"
@@ -66,14 +67,14 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="55dp"
+                android:layout_width="138dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tv_hname"
-                    android:layout_width="wrap_content"
+                    android:layout_width="123dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:fontFamily="@font/yeonsung"
@@ -82,7 +83,7 @@
 
                 <TextView
                     android:id="@+id/tv_wname"
-                    android:layout_width="wrap_content"
+                    android:layout_width="123dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:fontFamily="@font/yeonsung"
@@ -91,7 +92,7 @@
 
                 <TextView
                     android:id="@+id/tv_date"
-                    android:layout_width="wrap_content"
+                    android:layout_width="123dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:fontFamily="@font/yeonsung"
@@ -100,7 +101,7 @@
 
                 <TextView
                     android:id="@+id/tv_place"
-                    android:layout_width="wrap_content"
+                    android:layout_width="122dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:fontFamily="@font/yeonsung"

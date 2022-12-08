@@ -31,6 +31,7 @@ public class ChangePwActivity extends AppCompatActivity implements View.OnClickL
     private ProgressDialog progressDialog;
     //define firebase object
     private FirebaseAuth firebaseAuth;
+    private String userEmail;
 
 
 
@@ -43,6 +44,8 @@ public class ChangePwActivity extends AppCompatActivity implements View.OnClickL
         btn_changepw = (Button) findViewById(R.id.btn_changepw);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
+
+        userEmail = editTextUserEmail.getText().toString();
 
         btn_changepw.setOnClickListener(this);
 
