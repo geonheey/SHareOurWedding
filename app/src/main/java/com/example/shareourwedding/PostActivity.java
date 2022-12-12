@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -46,11 +47,6 @@ public class PostActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (mAuth.getCurrentUser() != null) {
-                    /*String postId = mDatabaseRef.child("post").getRef().getKey();
-                    Map<String, Object> data = new HashMap<>();
-                    data.put("userID", mAuth.getCurrentUser().getUid());
-                    data.put("title", mTitle.getText().toString());
-                    data.put("content", mContents.getText().toString());*/
 
                     String getTitle = title.getText().toString();
                     String getContent = content.getText().toString();
@@ -65,6 +61,9 @@ public class PostActivity extends AppCompatActivity {
 
                     writeNewUser(getTitle, getContent);
                     writeNewUser2(getTitle, getContent, couple_id, user_id);
+
+                    Toast.makeText(PostActivity.this, "업로드 성공",
+                            Toast.LENGTH_SHORT).show();
 
                 }
 

@@ -91,7 +91,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.789" />
+            app:layout_constraintVertical_bias="0.781" />
 
         <EditText
             android:id="@+id/et_password"
@@ -100,7 +100,7 @@
             android:backgroundTint="@color/white"
             android:ems="10"
             android:fontFamily="@font/yeonsung"
-            android:hint="  Password"
+            android:hint="Password"
             android:inputType="textPassword"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -118,7 +118,7 @@
             android:backgroundTint="@color/white"
             android:ems="10"
             android:fontFamily="@font/yeonsung"
-            android:hint="  ID"
+            android:hint="E-Mail"
             android:inputType="textEmailAddress"
             android:textColor="@color/white"
             android:textColorHint="@color/white"

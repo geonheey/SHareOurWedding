@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -63,20 +66,13 @@ public class RegisterActivity extends AppCompatActivity
                             //setValue : database에 insert(삽입) 행위
                             mDatabaseRef.child("userAccount").child(firebaseUser.getUid()).setValue(account);
 
-                            Button btn_register = findViewById(R.id.btn_register);
-                            btn_register.setOnClickListener(new View.OnClickListener()
-                            {
-                                @Override
-                                public void onClick(View view)
-                                {
-                                    // 회원가입 완료 화면으로 이동
-                                    Intent intent = new Intent(RegisterActivity.this, Register2Activity.class);
-                                    startActivity(intent);
-                                }
-                            });
+                            // 회원가입 완료 화면으로 이동
+                            Intent intent = new Intent(RegisterActivity.this, Register2Activity.class);
+                            startActivity(intent);
+
 
                         } else {
-                            Toast.makeText(RegisterActivity.this, "회원가입 실패", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "비밀번호는 영문과 숫자를 포함해야 합니다.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

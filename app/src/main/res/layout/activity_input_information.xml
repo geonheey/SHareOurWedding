@@ -6,12 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".InputInformationActivity">
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/hname"
         android:layout_width="220dp"
         android:layout_height="65dp"
-        android:hint="hint"
-        android:text="name"
+        android:hint="name"
         android:textColor="#A19C9C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.703"
@@ -21,12 +20,11 @@
         app:layout_constraintVertical_bias="0.101"
         android:fontFamily="@font/yeonsung"/>
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/wname"
         android:layout_width="220dp"
         android:layout_height="65dp"
-        android:hint="hint"
-        android:text="name"
+        android:hint="name"
         android:textColor="#A19C9C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.701"
@@ -140,21 +138,24 @@
         app:layout_constraintVertical_bias="0.159"
         android:fontFamily="@font/yeonsung" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/gallerybtn"
-        android:layout_width="131dp"
-        android:layout_height="125dp"
-        android:background="@drawable/cmpg"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:background="#eeeeee"
+        android:src="@drawable/ic_add_photo"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.719" />
+        app:layout_constraintVertical_bias="0.758" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="216dp"
         android:layout_height="30dp"
+        android:fontFamily="@font/yeonsung"
         android:text="(클릭 시 갤러리로 이동합니다)"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -162,15 +163,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.81"
-        android:fontFamily="@font/yeonsung"/>
+        app:layout_constraintVertical_bias="0.864" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/place"
         android:layout_width="220dp"
         android:layout_height="65dp"
-        android:hint="hint"
-        android:text="place"
+        android:hint="place"
         android:textColor="#A19C9C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.701"
@@ -185,8 +184,7 @@
         android:layout_width="173dp"
         android:layout_height="32dp"
         android:fontFamily="@font/yeonsung"
-        android:hint="hint"
-        android:text="date"
+        android:hint="date"
         android:textColor="#A19C9C"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -212,18 +210,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.526"
         android:fontFamily="@font/yeonsung"/>
-
-    <ImageButton
-        android:id="@+id/imageButton8"
-        android:layout_width="43dp"
-        android:layout_height="37dp"
-        android:background="#00ffffff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.967"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025"
-        app:srcCompat="@drawable/tb1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

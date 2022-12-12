@@ -80,7 +80,7 @@
             android:layout_margin="8dp"
             android:backgroundTint="#DD9EB3"
             android:fontFamily="@font/yeonsung"
-            android:text="부부/하객 선택화면"
+            android:text="메인 화면으로"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

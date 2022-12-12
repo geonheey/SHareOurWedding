@@ -154,8 +154,8 @@ public class MainActivity extends AppCompatActivity
             public void onClick(DialogInterface dialogInterface, int i)
             {
                 revoke();
-                /*Intent intent = new Intent(LoginActivity.this, RevokeActivity.class);
-                startActivity(intent);*/
+                Intent intent = new Intent(MainActivity.this, RevokeActivity.class);
+                startActivity(intent);
             }
         });
         builder.setNegativeButton("NO", null);

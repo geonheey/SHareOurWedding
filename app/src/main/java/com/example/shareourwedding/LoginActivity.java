@@ -70,10 +70,9 @@ public class LoginActivity extends AppCompatActivity
                             // 로그인 성공
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
-                            Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_LONG).show();
 
                         } else {
-                            Toast.makeText(LoginActivity.this, "로그인 실패", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "입력한 정보와 회원정보가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

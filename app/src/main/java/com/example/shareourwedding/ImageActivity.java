@@ -44,8 +44,6 @@ public class ImageActivity extends AppCompatActivity {
 
         String couple_id = intent.getStringExtra("id");
 
-        TextView show_id = findViewById(R.id.show_id);
-        show_id.setText(couple_id);
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);

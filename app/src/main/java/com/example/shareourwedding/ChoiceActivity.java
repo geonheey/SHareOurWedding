@@ -35,5 +35,7 @@ public class ChoiceActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+
+
     }
 }

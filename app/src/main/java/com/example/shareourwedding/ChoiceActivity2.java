@@ -43,14 +43,13 @@ public class ChoiceActivity2 extends AppCompatActivity {
         s_wname = findViewById(R.id.s_wname);
         s_date = findViewById(R.id.s_date);
         s_place = findViewById(R.id.s_place);
-        s_id = findViewById(R.id.s_id);
         s_imageurl = findViewById(R.id.s_imageurl);
 
         s_hname.setText(hname);
         s_wname.setText(wname);
         s_date.setText(date);
         s_place.setText(place);
-        s_id.setText(str_id);
+
         Glide.with(this).load(myUri).into(s_imageurl);
 
         Button btn_choice1 = (Button) findViewById(R.id.btn_choice_1);
