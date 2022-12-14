@@ -72,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity
 
 
                         } else {
-                            Toast.makeText(RegisterActivity.this, "비밀번호는 영문과 숫자를 포함해야 합니다.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "이미 존재하는 계정입니다.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
